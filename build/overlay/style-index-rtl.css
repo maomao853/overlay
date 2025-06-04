@@ -12,3 +12,70 @@
   color: #fff;
   padding: 2px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-image {
+  position: relative;
+}
+
+.img_ultrasound {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  justify-self: center;
+}
+
+.img_illustration {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 80%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: 32px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  height: 32px;
+  width: 32px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #6fbbdb;
+  /*  slider progress trick  */
+  box-shadow: 407px 0 0 400px #6fbbdb;
+}
+
+/* Track: webkit browsers */
+input[type=range]::-webkit-slider-runnable-track {
+  height: 32px;
+  background: #ccc;
+  border-radius: 32px;
+}

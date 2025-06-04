@@ -8,7 +8,7 @@
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/overlay","version":"0.1.0","title":"Overlay","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"attributes":{"ultrasound":{"type":"string","default":""},"illustration":{"type":"string","default":""}},"supports":{"html":false,"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"textdomain":"overlay","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/overlay","version":"0.1.0","title":"Overlay","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"attributes":{"ultrasound":{"type":"string","default":""},"illustration":{"type":"string","default":""},"dimension":{"type":"string","default":"500px"}},"supports":{"html":false,"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"textdomain":"overlay","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -68,7 +68,7 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Panel, {
@@ -76,26 +76,67 @@ function Edit({
           title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Settings", "wpdev"),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              __nextHasNoMarginBottom: true,
+              __next40pxDefaultSize: true,
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Ultrasound URL", "wpdev"),
               attributes: attributes.ultrasound,
               value: attributes.ultrasound,
               onChange: ultrasound => setAttributes({
-                ultrasound
+                "ultrasound": ultrasound
               })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              __nextHasNoMarginBottom: true,
+              __next40pxDefaultSize: true,
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Illustration URL", "wpdev"),
               attributes: attributes.illustration,
               value: attributes.illustration,
               onChange: illustration => setAttributes({
-                illustration
+                "illustration": illustration
               })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalDimensionControl, {
+              __nextHasNoMarginBottom: true,
+              __next40pxDefaultSize: true,
+              label: ' Size',
+              icon: 'desktop',
+              onChange: dimension => setAttributes({
+                "dimension": dimension
+              }),
+              value: attributes.dimension,
+              sizes: [{
+                name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Small'),
+                slug: '100px'
+              }, {
+                name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Medium'),
+                slug: '250px'
+              }, {
+                name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Large'),
+                slug: '500px'
+              }]
             })
           })]
         })
       })
-    }), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Overlay – hello from the editor!', 'overlay')]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      class: "container",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        class: "container-image",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          class: "img_ultrasound",
+          src: attributes.ultrasound
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        class: "slider",
+        type: "range",
+        min: "0",
+        max: "1",
+        step: "0.01",
+        value: "0"
+      })]
+    })]
   });
 }
 

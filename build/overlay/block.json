@@ -16,6 +16,10 @@
     "illustration": {
       "type": "string",
       "default": ""
+    },
+    "dimension": {
+      "type": "string",
+      "default": "500px"
     }
   },
   "supports": {

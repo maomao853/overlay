@@ -21,6 +21,10 @@ return array(
 			'illustration' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'dimension' => array(
+				'type' => 'string',
+				'default' => '500px'
 			)
 		),
 		'supports' => array(

@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { Panel, PanelBody, PanelRow, TextControl } from '@wordpress/components';
+import { Panel, PanelBody, PanelRow, TextControl, __experimentalDimensionControl as DimensionControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,30 +32,65 @@ import './editor.scss';
  */
 export default function Edit({attributes, setAttributes}) {
 	return (
-		<p { ...useBlockProps() }>
+    <div { ...useBlockProps() }>
       <InspectorControls>
         <Panel>
           <PanelBody title={__("Settings", "wpdev")}>
             <PanelRow>
               <TextControl
+                __nextHasNoMarginBottom
+                __next40pxDefaultSize
                 label={__("Ultrasound URL", "wpdev")}
                 attributes={attributes.ultrasound}
                 value={attributes.ultrasound}
-                onChange={(ultrasound) => setAttributes({ultrasound})}
+                onChange={(ultrasound) => setAttributes({"ultrasound": ultrasound})}
               />
             </PanelRow>
             <PanelRow>
               <TextControl
+                __nextHasNoMarginBottom
+                __next40pxDefaultSize
                 label={__("Illustration URL", "wpdev")}
                 attributes={attributes.illustration}
                 value={attributes.illustration}
-                onChange={(illustration) => setAttributes({illustration})}
+                onChange={(illustration) => setAttributes({"illustration": illustration})}
+              />
+            </PanelRow>
+            <PanelRow>
+              <DimensionControl
+                __nextHasNoMarginBottom
+                __next40pxDefaultSize
+                label={' Size'}
+                icon={'desktop'}
+                onChange={(dimension) => setAttributes({"dimension": dimension})}
+                value={attributes.dimension}
+                sizes={
+                  [
+                    {
+                      name: __( 'Small' ),
+                      slug: '100px',
+                    },
+                    {
+                      name: __( 'Medium' ),
+                      slug: '250px',
+                    },
+                    {
+                      name: __( 'Large' ),
+                      slug: '500px',
+                    },
+                  ]
+                }
               />
             </PanelRow>
           </PanelBody>
         </Panel>
       </InspectorControls>
-			{ __( 'Overlay – hello from the editor!', 'overlay' ) }
-		</p>
+      <div class="container">
+        <div class="container-image">
+          <img class="img_ultrasound" src={attributes.ultrasound} />
+        </div>
+        <input class="slider" type="range" min="0" max="1" step="0.01" value="0" />
+      </div>
+    </div>
 	);
 }
