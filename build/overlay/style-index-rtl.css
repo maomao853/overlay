@@ -7,12 +7,6 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-create-block-overlay {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -42,7 +36,7 @@
   top: 0;
 }
 
-.slider {
+.slider[type=range] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -53,17 +47,20 @@
   border-radius: 32px;
 }
 
-.slider::-webkit-slider-runnable-track {
+.slider[type=range]::-webkit-slider-runnable-track {
   height: 32px;
   background: #ccc;
   border-radius: 16px;
 }
 
-input[type=range]::-webkit-slider-thumb {
+.slider[type=range]::-webkit-slider-thumb {
   /* removing default appearance */
   -webkit-appearance: none;
   appearance: none;
   /* creating a custom design */
+  /* margin-top = (track height in pixels / 2) - (thumb height in pixels /2) */
+  /* https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/ */
+  margin-top: 0px;
   height: 32px;
   width: 32px;
   background-color: #fff;
@@ -74,7 +71,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* Track: webkit browsers */
-input[type=range]::-webkit-slider-runnable-track {
+.slider[type=range]::-webkit-slider-runnable-track {
   height: 32px;
   background: #ccc;
   border-radius: 32px;
